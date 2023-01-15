@@ -16,7 +16,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@simple-blog/api": ["libs/api/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
