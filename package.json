@@ -7,10 +7,20 @@
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/jwt": "^10.0.2",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/sequelize": "^9.0.0",
+    "bcrypt": "^5.1.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "nanoid": "^4.0.1",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
     "@openapitools/openapi-generator-cli": "^2.5.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
+    "sequelize": "^6.29.1",
+    "sequelize-typescript": "^2.1.5",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -23,6 +33,7 @@
     "@nrwl/node": "15.5.1",
     "@nrwl/webpack": "15.5.1",
     "@nrwl/workspace": "15.5.1",
+    "@types/bcrypt": "^5.0.0",
     "@types/jest": "28.1.1",
     "@types/node": "18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
