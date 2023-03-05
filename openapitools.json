@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "5.4.0",
+    "generators": {
+      "simple-blog-server": {
+        "generatorName": "typescript-nestjs",
+        "output": "./libs/api/src/lib/generated",
+        "glob": "./libs/api/src/lib/simple-blog-api.yaml",
+        "additionalProperties": {
+          "nestVersion": "9.0.0",
+          "npmName": "simple-blog-server",
+          "supportsES6": true,
+          "npmVersion": "6.9.0",
+          "withInterfaces": true
+        }
+      }
+    }
+  }
+}
