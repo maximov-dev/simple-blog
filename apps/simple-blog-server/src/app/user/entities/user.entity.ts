@@ -6,7 +6,7 @@ export class UserEntity implements IUser {
    email: string;
    id: string;
    passwordHash: string;
-   roles: UserRole;
+   roles: UserRole[];
    posts: IPost[];
 
    constructor(user: IUser) {

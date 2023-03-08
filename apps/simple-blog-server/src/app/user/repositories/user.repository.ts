@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { User } from '../models/user.model';
+import { DBUser } from '../models/user.model';
 import { IUser } from '@simple-blog/interfaces';
 
 @Injectable()
 export class UserRepository {
-   constructor(@InjectModel(User) private userRepository: typeof User) {}
+   constructor(@InjectModel(DBUser) private userRepository: typeof DBUser) {}
 
    async createUser(userToCreate: IUser) {
       const user = await this.userRepository.create(userToCreate);
@@ -14,8 +14,11 @@ export class UserRepository {
       return user;
    }
 
-  async getUserByEmail(email: string) {
-    const user = await this.userRepository.findOne({where: {email}, include: {all: true}})
-    return user;
-  }
+   async getUserByEmail(email: string) {
+      const user = await this.userRepository.findOne({
+         where: { email },
+         include: { all: true },
+      });
+      return user;
+   }
 }

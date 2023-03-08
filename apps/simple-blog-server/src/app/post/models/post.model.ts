@@ -6,11 +6,11 @@ import {
    Model,
    Table,
 } from 'sequelize-typescript';
-import { User } from '../../user/models/user.model';
+import { DBUser } from '../../user/models/user.model';
 import { IPost } from '@simple-blog/interfaces';
 
 @Table({ tableName: 'posts' })
-export class Post extends Model<Post, IPost> {
+export class DBPost extends Model<DBPost, IPost> {
    @Column({
       type: DataType.INTEGER,
       unique: true,
@@ -28,10 +28,10 @@ export class Post extends Model<Post, IPost> {
    @Column({ type: DataType.STRING })
    image!: string;
 
-   @ForeignKey(() => User)
+   @ForeignKey(() => DBUser)
    @Column({ type: DataType.INTEGER })
    userId!: number;
 
-   @BelongsTo(() => User)
-   author!: User;
+   @BelongsTo(() => DBUser)
+   author!: DBUser;
 }

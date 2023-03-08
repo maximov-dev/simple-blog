@@ -5,11 +5,11 @@ import {
    Model,
    Table,
 } from 'sequelize-typescript';
-import { User } from '../../user/models/user.model';
-import { Role } from './role.model';
+import { DBUser } from '../../user/models/user.model';
+import { DBRole } from './role.model';
 
 @Table({ tableName: 'user_roles', createdAt: false, updatedAt: false })
-export class UserRole extends Model<UserRole> {
+export class DBUserRole extends Model<DBUserRole> {
    @Column({
       type: DataType.INTEGER,
       unique: true,
@@ -18,11 +18,11 @@ export class UserRole extends Model<UserRole> {
    })
    override id!: number;
 
-   @ForeignKey(() => Role)
+   @ForeignKey(() => DBRole)
    @Column({ type: DataType.INTEGER })
    roleId!: number;
 
-   @ForeignKey(() => User)
+   @ForeignKey(() => DBUser)
    @Column({ type: DataType.INTEGER })
    userId!: number;
 }
