@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Simple Blog API
+  description: See https://jsonplaceholder.typicode.com/
+paths:
+  /auth:
+    get:
+      description: Returns all users
+      tags: ['Users']
+      operationId: 'getUsers'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/UserList'
+
+  /users/{id}:
+    get:
+      description: Returns a post by id
+      tags: ['Users']
+      operationId: 'getPost'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The user id.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
+
+components:
+  schemas:
+    UserList:
+      "type": "array"
+      "items":
+        $ref: "#/components/schemas/User"
+    User:
+      "type": "object"
+      "required":
+        - "id"
+        - "name"
+      "properties":
+        id:
+          type: "integer"
+        name:
+          type: "string"
