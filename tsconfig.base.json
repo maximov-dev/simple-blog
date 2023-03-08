@@ -17,9 +17,11 @@
       "skipDefaultLibCheck": true,
       "baseUrl": ".",
       "paths": {
+         "@simple-blog/api": ["libs/api/src/index.ts"],
+         "@simple-blog/backend": ["libs/backend/src/index.ts"],
          "@simple-blog/contracts": ["libs/contracts/src/index.ts"],
          "@simple-blog/interfaces": ["libs/interfaces/src/index.ts"],
-         "@simple-blog/api": ["libs/api/src/index.ts"]
+         "@simple-blog/shared": ["libs/shared/src/index.ts"]
       }
    },
    "exclude": ["node_modules", "tmp"]

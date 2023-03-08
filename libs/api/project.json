@@ -1,22 +1,22 @@
 {
-  "name": "api",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/api/src",
-  "projectType": "library",
-  "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/api/**/*.ts"]
+   "name": "api",
+   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+   "sourceRoot": "libs/api/src",
+   "projectType": "library",
+   "targets": {
+      "lint": {
+         "executor": "@nrwl/linter:eslint",
+         "outputs": ["{options.outputFile}"],
+         "options": {
+            "lintFilePatterns": ["libs/api/**/*.ts"]
+         }
+      },
+      "generate": {
+         "executor": "nx:run-commands",
+         "options": {
+            "command": "sh ./libs/api/src/lib/generate-api.sh"
+         }
       }
-    },
-    "generate":  {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "sh ./libs/api/src/lib/generate-api.sh"
-      }
-    }
-  },
-  "tags": []
+   },
+   "tags": []
 }
