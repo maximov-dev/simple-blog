@@ -19,11 +19,13 @@ export class AuthService {
          throw new Error('User exists in system');
       }
 
+      const roles: UserRole[] = [UserRole.Reader];
       const newEntity = new UserEntity({
          id: nanoid(),
          displayName,
          email,
-         role: UserRole.Student,
+         roles,
+          posts: [],
          passwordHash: '',
       });
       const newEntityWithPassword = await newEntity.setPassword(password);
@@ -49,7 +51,7 @@ export class AuthService {
          throw new Error('Wrong login or password');
       }
 
-      return { id: user._id };
+      return { id: user.id };
    }
 
    async login(id: string) {

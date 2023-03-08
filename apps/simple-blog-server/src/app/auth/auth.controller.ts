@@ -7,12 +7,14 @@ export class AuthController {
    constructor(private readonly authService: AuthService) {}
 
    @Post('login')
-   login(@Body() { email, password }: AccountLogin.Request) {
-      return this.authService.validateUser(email, password);
+   async login(@Body() { email, password }: AccountLogin.Request) {
+     const { id } = await this.authService.validateUser(email, password);
+
+      return this.authService.login(id);
    }
 
    @Post('register')
-   register(@Body() request: AccountRegister.Request) {
+   async register(@Body() request: AccountRegister.Request) {
       return this.authService.register(request);
    }
 }

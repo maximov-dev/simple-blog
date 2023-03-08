@@ -1,4 +1,4 @@
-import { User } from '../../user/models/user.model';
+import { DBUser } from '../../user/models/user.model';
 import {
    BelongsToMany,
    Column,
@@ -6,7 +6,8 @@ import {
    Model,
    Table,
 } from 'sequelize-typescript';
-import { UserRole } from './user-role.model';
+import { DBUserRole } from './user-role.model';
+import {IUser} from "@simple-blog/interfaces";
 
 interface RoleCreationAttrs {
    value: string;
@@ -14,7 +15,7 @@ interface RoleCreationAttrs {
 }
 
 @Table({ tableName: 'roles' })
-export class Role extends Model<Role, RoleCreationAttrs> {
+export class DBRole extends Model<DBRole, RoleCreationAttrs> {
    @Column({
       type: DataType.INTEGER,
       unique: true,
@@ -29,6 +30,6 @@ export class Role extends Model<Role, RoleCreationAttrs> {
    @Column({ type: DataType.STRING, allowNull: false })
    description!: string;
 
-   @BelongsToMany(() => User, () => UserRole)
-   users!: User[];
+   @BelongsToMany(() => DBUser, () => DBUserRole)
+   users!: IUser[];
 }
